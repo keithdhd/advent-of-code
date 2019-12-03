@@ -7,17 +7,15 @@ class Day2
     count = 0
 
     while count < items.length
-      operator,
+      operation,
       index1,
       index2,
       update_value = items.values_at(count, count + 1, count + 2, count + 3)
-      
-      if operator == 1
-        items[update_value] = items[index1] + items[index2]
-      elsif operator == 2
-        items[update_value] = items[index1] * items[index2]
-        break if operator == 99
-      end
+
+      break if operation == 99
+
+      operator = operation == 1 ? '+' : '*'
+      items[update_value] = items[index1].send(operator, items[index2])
 
       count += 4
     end
