@@ -3,27 +3,27 @@
 #This program runs a thing
 class Day2
 
-  def self.run(array)
+  def self.run(items)
     count = 0
 
-    while count < array.length
+    while count < items.length
       operator,
       index1,
       index2,
-      update_value = array.values_at(count, count + 1, count + 2, count + 3)
+      update_value = items.values_at(count, count + 1, count + 2, count + 3)
 
       if operator == 1
-        aggregate = array[index1] + array[index2]
-        array[update_value] = aggregate
+        aggregate = items[index1] + items[index2]
+        items[update_value] = aggregate
       elsif operator == 2
-        aggregate = array[index1] * array[index2]
-        array[update_value] = aggregate
+        aggregate = items[index1] * items[index2]
+        items[update_value] = aggregate
         break if operator == 99
       end
 
       count += 4
     end
 
-    array
+    items
   end
 end
