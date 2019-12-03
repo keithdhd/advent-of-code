@@ -4,25 +4,24 @@
 class Day2
 
   def self.run(array)
-    counter = 0
+    count = 0
 
-    while counter < array.length
-
-      operator = array[counter]
-      first_reference = array[counter + 1]
-      second_reference = array[counter + 2]
-      update_value = array[counter + 3]
+    while count < array.length
+      operator,
+      index1,
+      index2,
+      update_value = array.values_at(count, count + 1, count + 2, count + 3)
 
       if operator == 1
-        aggregate = array[first_reference] + array[second_reference]
+        aggregate = array[index1] + array[index2]
         array[update_value] = aggregate
       elsif operator == 2
-        aggregate = array[first_reference] * array[second_reference]
+        aggregate = array[index1] * array[index2]
         array[update_value] = aggregate
         break if operator == 99
       end
 
-      counter += 4
+      count += 4
     end
 
     array
