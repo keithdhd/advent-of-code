@@ -9,7 +9,7 @@ class Day1
 
   def fuel_calculator
     @fuel_modules
-      .map{|i| fuel_per_module(i) }
+      .map {|i| fuel_per_module(i) }
       .reduce(&:+)
   end
 
