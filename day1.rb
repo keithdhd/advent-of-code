@@ -8,14 +8,10 @@ class Day1
   end
 
   def fuel_calculator
-    running_total = 0
-
-    @fuel_modules.each do |fuel_module|
+    @fuel_modules.reduce(0) do |running_total, fuel_module| 
       fuel_required = fuel_per_module(fuel_module)
-      running_total += fuel_required
+      running_total + fuel_required
     end
-
-    running_total
   end
 
   def fuel_per_module(module_mass) 
