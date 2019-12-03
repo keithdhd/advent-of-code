@@ -11,13 +11,11 @@ class Day2
       index1,
       index2,
       update_value = items.values_at(count, count + 1, count + 2, count + 3)
-
+      
       if operator == 1
-        aggregate = items[index1] + items[index2]
-        items[update_value] = aggregate
+        items[update_value] = items[index1] + items[index2]
       elsif operator == 2
-        aggregate = items[index1] * items[index2]
-        items[update_value] = aggregate
+        items[update_value] = items[index1] * items[index2]
         break if operator == 99
       end
 
