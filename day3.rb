@@ -10,7 +10,7 @@ class Day3
   end
 
   def self.valid_password?(password)
-    pairs = password.digits.reverse.each_slice(2).to_a
+    pairs = password.digits.reverse.each_slice(2).to_a + password.digits.reverse[1..4].each_slice(2).to_a
     diffs = pairs.map {|a,b| b - a }
     not_decreasing = diffs.map {|number| number >= 0}
     diffs.include? 0 and not_decreasing.all?
