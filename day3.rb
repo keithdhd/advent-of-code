@@ -13,7 +13,7 @@ class Day3
   def self.valid_password?(password)
     pairs = password.digits.reverse
                     .each_slice(2).to_a +
-            password.digits.reverse[1..4]
+            password.digits.reverse[1..-2]
                     .each_slice(2).to_a
 
     diffs = pairs.map { |a, b| b - a }

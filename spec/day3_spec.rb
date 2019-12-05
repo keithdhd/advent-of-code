@@ -11,6 +11,8 @@ RSpec.describe Day3 do
       expect(Day3.valid_password?(888_999)).to be true
       expect(Day3.valid_password?(122_345)).to be true
       expect(Day3.valid_password?(112_323)).to be false
+      expect(Day3.valid_password?(112_333_45)).to be true
+      expect(Day3.valid_password?(112_333_25)).to be false
     end
   end
 
