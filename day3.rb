@@ -6,7 +6,7 @@ class Day3
 
   def self.valid_password_counter(passwords)
     valid_passwords = passwords.map {|password| self.valid_password?(password) ? 1 : 0}
-    passwords.zip(valid_passwords)
+    valid_passwords.sum
   end
 
   def self.valid_password?(password)
