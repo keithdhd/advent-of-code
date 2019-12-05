@@ -1,3 +1,7 @@
 Metrics/BlockLength:
   Exclude:
     - 'spec/*_spec.rb'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'day3.rb'
