@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This does a Christmas
-class Day3
+module Day3
   def self.valid_password_counter(passwords)
     valid_passwords = passwords.map do |password|
       valid_password?(password) ? 1 : 0
