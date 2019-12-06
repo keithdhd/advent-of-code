@@ -3,7 +3,7 @@
 require_relative '../day3.rb'
 
 RSpec.describe Day3 do
-  describe '.self.valid_password?' do
+  describe '.valid_password?' do
     it 'will do a thing' do
       expect(Day3.valid_password?(111_111)).to be true
       expect(Day3.valid_password?(223_450)).to be false
@@ -16,7 +16,7 @@ RSpec.describe Day3 do
     end
   end
 
-  describe '.self.valid_password_counter' do
+  describe '.valid_password_counter' do
     it 'will do a thing' do
       expect(Day3.valid_password_counter([
                                            111_111, 223_450,
