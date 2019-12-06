@@ -3,15 +3,13 @@
 # This does a Christmas
 module Day3
   def self.valid_password_counter(passwords)
-    valid_passwords = passwords.map do |password|
-      valid_password?(password) ? 1 : 0
-    end
-
-    valid_passwords.sum
+    passwords.map { |p| valid_password?(p) ? 1 : 0 }
+             .sum
   end
 
   def self.valid_password?(password)
-    pairs = password.digits.reverse
+    pairs = password.digits
+                    .reverse
                     .each_slice(2).to_a +
             password.digits.reverse[1..-2]
                     .each_slice(2).to_a
