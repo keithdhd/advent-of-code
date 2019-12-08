@@ -10,11 +10,18 @@ module Day6
     total
   end
 
-  def self.orbit_builder(planets)
-    #needs to return {a => b, b=> c, c=>e}
-    planets[1..].each_with_object({}) do |planet, orbits|
-      orbits[planet] = planet[]
+  def self.direct_orbit_builder(orbits)
+    #from [['a', 'b'],['b','c']]
+    #builds {'b'=>['a'], 'c'=>['b']}
+    orbits.each_with_object({}) do |planet_pair, hash|
+      hash[planet_pair[1]] = [planet_pair[0]]
     end
+  end
+
+
+    #needs to return {b => ['a'], c=> ['b', 'a']}
+  def self.indirect_orbit_updater(direct_orbits)
+    
   end
 
 end
