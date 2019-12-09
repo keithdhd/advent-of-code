@@ -15,7 +15,7 @@ parent_planets.each_with_object({}) do |planet|
   maybe_root_sun[planet] = planet_children.include?(planet)
 end
 
-root_sun =  maybe_root_sun.key(false)
+root_sun = maybe_root_sun.select {|k,v| v == false}.keys
 
 graph = RGL::DirectedAdjacencyGraph.new
 
@@ -31,10 +31,12 @@ end
 
 total_orbits = 0
 
-solar_system.each do |planet_pair|
-  orbits = graph.dijkstra_shortest_path(edge_weights, root_sun, planet_pair[1]).count - 1
-  puts "Distance between #{root_sun} and #{planet_pair[1]} is #{orbits}" 
-  total_orbits += orbits
+root_sun.each do |sun|
+  solar_system.each do |planet_pair|
+    orbits = graph.dijkstra_shortest_path(edge_weights, sun, planet_pair[1]).count - 1
+    puts "Distance between #{sun} and #{planet_pair[1]} is #{orbits}" 
+    total_orbits += orbits
+  end
 end
 
 puts "Total orbits in solar system is  #{total_orbits}"
