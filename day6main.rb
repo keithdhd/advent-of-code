@@ -1,10 +1,8 @@
 require 'rgl/adjacency'
 require 'rgl/dijkstra'
+require_relative 'planets'
 
-
-solar_system = [["COM", "B"], ["B", "C"], ["C", "D"], ["D", "E"], ["B", "G"], 
-                ["G", "H"], ["D", "I"], ["E", "J"], ["J", "K"], ["K", "L"],
-                ["E", "F"], ["X", "Z"]] 
+solar_system = Planets::SOLAR_SYSTEM
 
 maybe_root_sun = {}
 
