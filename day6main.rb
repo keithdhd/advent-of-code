@@ -4,7 +4,7 @@ require 'rgl/dijkstra'
 
 solar_system = [["COM", "B"], ["B", "C"], ["C", "D"], ["D", "E"], ["B", "G"], 
                 ["G", "H"], ["D", "I"], ["E", "J"], ["J", "K"], ["K", "L"],
-                ["E", "F"]] 
+                ["E", "F"], ["X", "Z"]] 
 
 maybe_root_sun = {}
 
@@ -33,7 +33,9 @@ total_orbits = 0
 
 root_sun.each do |sun|
   solar_system.each do |planet_pair|
-    orbits = graph.dijkstra_shortest_path(edge_weights, sun, planet_pair[1]).count - 1
+    number_of_planets = graph.dijkstra_shortest_path(edge_weights, sun, planet_pair[1]).nil? ? 
+                        1 : graph.dijkstra_shortest_path(edge_weights, sun, planet_pair[1]).count
+    orbits = number_of_planets - 1
     puts "Distance between #{sun} and #{planet_pair[1]} is #{orbits}" 
     total_orbits += orbits
   end
