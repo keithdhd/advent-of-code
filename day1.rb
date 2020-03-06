@@ -10,6 +10,7 @@ class Day1
     @fuel_modules
       .map { |i| fuel_per_module(i) }
       .reduce(&:+)
+      # Super fast way to reduce 
   end
 
   def fuel_per_module(module_mass)
